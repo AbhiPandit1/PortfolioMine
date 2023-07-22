@@ -5,9 +5,21 @@ import moonImage from "../../Images/moon.png";
 import venusImage from "../../Images/venus.png";
 import spaceImage from "../../Images/space.png";
 import { Typography } from "@mui/material";
-import TimeLine from './src/components/TimeLine/TimeLine';
+import TimeLine from "../TimeLines/TimeLines";
+import {
+  SiCplusplus,
+  SiReact,
+  SiJavascript,
+  SiMongodb,
+  SiNodedotjs,
+  SiExpress,
+  SiCss3,
+  SiHtml5,
+  SiThreedotjs,
+} from "react-icons/si";
 
-
+import { Link } from "react-router-dom";
+import { MouseOutlined } from "@mui/icons-material";
 
 const Home = ({ timelines, youtubes, skills }) => {
   useEffect(() => {
@@ -108,13 +120,85 @@ const Home = ({ timelines, youtubes, skills }) => {
   return (
     <div className="home">
       <canvas className="homeCanvas"></canvas>
+
+      <div className="homeCanvasContainer">
+        <Typography variant="h1">
+          <p>A</p>
+          <p>B</p>
+          <p>H</p>
+          <p>I</p>
+          <p>S</p>
+          <p>H</p>
+          <p>E</p>
+          <p>K</p>
+        </Typography>
+
+        <div className="homeCanvasBox">
+          <Typography variant="h2">DESIGNER</Typography>
+          <Typography variant="h2">DEVELOPER</Typography>
+          <Typography variant="h2">COMPETITIVE </Typography>
+          <Typography variant="h2">PROGRAMMER</Typography>
+         
+        </div>
+
+        <Link to="/projects">VIEW WORK</Link>
+      </div>
+
+      <div className="homeScrollBtn">
+        <MouseOutlined />
+      </div>
+
       <div className="homeContainer">
         <Typography variant="h3">TIMELINE</Typography>
-        <TimeLine timelines={[1,2,3,4]}/>
+        <TimeLine timelines={timelines} />
+      </div>
+
+      <div className="homeSkills">
+        <Typography variant="h3">SKILLS</Typography>
+
+        <div className="homeCubeSkills">
+          <div className="homeCubeSkillsFaces homeCubeSkillsFace1">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Birmingham_cityscape_view_2010.jpg" alt="Face1" />
+          </div>
+
+          <div className="homeCubeSkillsFaces homeCubeSkillsFace2">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/16th_Street_Baptist_Church.JPG" alt="Face2" />
+          </div>
+
+          <div className="homeCubeSkillsFaces homeCubeSkillsFace3">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ee/BMA-2010-screen.jpg" alt="Face3" />
+          </div>
+
+          <div className="homeCubeSkillsFaces homeCubeSkillsFace4">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/OUR_BABY_DOFFER.jpg" alt="Face4" />
+          </div>
+
+          <div className="homeCubeSkillsFaces homeCubeSkillsFace5">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Railroad_Park%2C_Birmingham.jpg" alt="Face5" />
+          </div>
+
+          <div className="homeCubeSkillsFaces homeCubeSkillsFace6">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/I20I59Birmingham.JPGalt" alt="Face6" />
+          </div>
+        </div>
+
+        <div className="cubeShadow"></div>
+
+        <div className="homeskillsBox" id="homeskillsBox">
+          <SiCplusplus />
+          <SiHtml5 />
+          <SiCss3 />
+          <SiJavascript />
+          <SiMongodb />
+          <SiExpress />
+          <SiReact />
+          <SiNodedotjs />
+          <SiThreedotjs />
+        </div>
       </div>
 
       
-      </div>
+    </div>
   );
 };
 

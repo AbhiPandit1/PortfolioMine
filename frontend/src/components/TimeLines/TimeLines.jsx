@@ -17,24 +17,30 @@ const TimeLine = ({timelines=[]}) => {
         <Timeline position='alternate'>
         
     {
-                timelines.map((items,index)=>{
+                timelines.map((items,index)=>(
                     <TimelineItem key={index}>
 
-                        <TimelineOppositeContent>
+                        <TimelineOppositeContent sx={{m:'auto 0'}}
+                        align='right'
+                        variant='body2'
+                        color="text.secondary"
+                        >
                             3/23/22
-                        </TimelineOppositeContent>
+                        </TimelineOppositeContent >
                         <TimelineSeparator>
+                            <TimelineConnector/>
                             <TimelineDot>
-
+                                <Event/>
                             </TimelineDot>
+                            <TimelineConnector/>
 
                         </TimelineSeparator>
-        <TimelineContent>
+        <TimelineContent sx={{py:"12px",px:2}}>
             <Typography variant='h6'>Title</Typography>
             <Typography >Description</Typography>
         </TimelineContent>
                         </TimelineItem>
-                })
+                ))
             }
         </Timeline>
 
