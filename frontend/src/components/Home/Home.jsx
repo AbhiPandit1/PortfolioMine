@@ -5,7 +5,7 @@ import moonImage from "../../Images/moon.png";
 import venusImage from "../../Images/venus.png";
 import spaceImage from "../../Images/space.png";
 import { Typography } from "@mui/material";
-import TimeLine from "../Timeline/Timeline.jsx";
+import TimeLine from './src/components/TimeLine/TimeLine';
 
 
 
