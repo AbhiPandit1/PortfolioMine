@@ -1,15 +1,15 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
   name: String,
   email: {
     type: String,
     unique: true,
-    required: [true, 'Please Enter Email'],
+    required: [true, "Please Enter Email"],
   },
   password: {
     type: String,
-    required: [true, 'Please Enter Email'],
+    required: [true, "Please Enter Password"],
     select: false,
   },
 
@@ -17,10 +17,7 @@ const userSchema = new mongoose.Schema({
     {
       title: String,
       description: String,
-      date: {
-        type: Date,
-        default: Date.now,
-      },
+      date: Date,
     },
   ],
 
@@ -29,6 +26,7 @@ const userSchema = new mongoose.Schema({
       public_id: String,
       url: String,
     },
+
     image2: {
       public_id: String,
       url: String,
@@ -50,6 +48,18 @@ const userSchema = new mongoose.Schema({
       url: String,
     },
   },
+
+  youtube: [
+    {
+      url: String,
+      title: String,
+      image: {
+        public_id: String,
+        url: String,
+      },
+    },
+  ],
+
   projects: [
     {
       url: String,
@@ -62,6 +72,7 @@ const userSchema = new mongoose.Schema({
       techStack: String,
     },
   ],
+
   about: {
     name: String,
     title: String,
@@ -75,4 +86,4 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-export const User = mongoose.model('User', userSchema);
+export const User = mongoose.model("User", userSchema);

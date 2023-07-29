@@ -1,25 +1,37 @@
-import express from 'express';
+import express from "express";
 import {
-  addTimeline,
-  contact,
-  getUser,
   login,
   logout,
+  getUser,
   myProfile,
+  contact,
   updateUser,
-} from '../controller/User.js';
-import { isAuthenticated } from '../middlewares/auth.js';
-
+  addTimeline,
+  addYoutube,
+  addProject,
+  deleteTimeline,
+  deleteYoutube,
+  deleteProject,
+} from "../controller/User.js";
+import { isAuthenticated } from "../middlewares/auth.js";
 export const userRouter = express.Router();
 
-userRouter.route('/login').post(login);
-userRouter.route('/logout').get(logout);
-userRouter.route('/user').get(getUser);
+userRouter.route("/login").post(login);
 
-userRouter.route('/me').get(isAuthenticated, myProfile);
+userRouter.route("/logout").get(logout);
 
-userRouter.route('/admin/update').put(isAuthenticated, updateUser);
+userRouter.route("/user").get(getUser);
 
-userRouter.route('/admin/add/timeline/add').post(isAuthenticated, addTimeline);
+userRouter.route("/me").get(isAuthenticated, myProfile);
 
-userRouter.route('/me').post(contact);
+userRouter.route("/admin/update").put(isAuthenticated, updateUser);
+
+userRouter.route("/admin/timeline/add").post(isAuthenticated, addTimeline);
+userRouter.route("/admin/youtube/add").post(isAuthenticated, addYoutube);
+userRouter.route("/admin/project/add").post(isAuthenticated, addProject);
+
+userRouter.route("/admin/timeline/:id").delete(isAuthenticated, deleteTimeline);
+userRouter.route("/admin/youtube/:id").delete(isAuthenticated, deleteYoutube);
+userRouter.route("/admin/project/:id").delete(isAuthenticated, deleteProject);
+
+userRouter.route("/contact").post(contact);
