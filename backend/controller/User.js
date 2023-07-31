@@ -9,7 +9,7 @@ export const login = async (req, res) => {
     console.log(email)
     console.log(password)
 
-    const user = await User.findOne({ email, password });
+    const user = await User.find({ email, password });
     console.log(user)
 
     if (!user) {
